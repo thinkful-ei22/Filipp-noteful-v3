@@ -12,9 +12,10 @@ router.get('/', (req, res, next) => {
     .then(() => {
       const {searchTerm} = req.query;
       let filter = {};
-
+      
       if (searchTerm) {
-        filter.title = { $regex: searchTerm };
+        filter.title = new RegExp(searchTerm, 'i');
+        //filter.$or = [{ 'title': { $regex: searchTerm } }, { 'content': { $regex: searchTerm } }];
       }
 
       return Note.find(filter).sort({ updatedAt: 'desc' });
