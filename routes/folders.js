@@ -124,7 +124,6 @@ router.delete('/:id', (req, res, next) => {
 
   Folder.findByIdAndRemove(id)
     .then(() => {
-      console.log('NOTES DELETION IS RUNNING', id);
       return Note.deleteMany({folderId: id});
     })
     .then(() => {
