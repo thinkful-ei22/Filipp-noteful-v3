@@ -11,7 +11,8 @@ folderSchema.set('timestamps', true);
 folderSchema.set('toObject', {
   virtuals: true,
   versionKey: false,
-  transfrom: (doc, ret) => {
+  transform: (doc, ret) => {
+    ret.id = ret._id;
     delete ret._id;
   }
 });
