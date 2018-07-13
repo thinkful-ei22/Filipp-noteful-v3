@@ -20,7 +20,6 @@ describe('Noteful Folders Tests', function() {
     this.timeout(5000);
     return mongoose.connect(TEST_MONGODB_URI, {connectTimeoutMS: 4000})
       .then(() => mongoose.connection.db.dropDatabase());
-      
   });
 
   beforeEach(function () {
